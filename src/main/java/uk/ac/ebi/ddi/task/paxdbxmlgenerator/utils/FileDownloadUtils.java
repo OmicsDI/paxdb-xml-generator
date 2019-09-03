@@ -15,7 +15,9 @@ public class FileDownloadUtils {
     public static void downloadFile(String fileUrl, File dest) throws IOException {
         URL url = new URL(fileUrl);
         URLConnection connection = url.openConnection();
-        connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
+        // Workaround PaxDB's request limitation
+        connection.addRequestProperty("User-Agent",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
         try (InputStream is = connection.getInputStream();
              FileOutputStream fileOutput = new FileOutputStream(dest)) {
 

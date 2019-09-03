@@ -7,6 +7,10 @@ import java.util.zip.ZipInputStream;
 public class ZipUtils {
 
     private static final int BUFFER_SIZE = 4096;
+
+    private ZipUtils() {
+    }
+
     /**
      * Extracts a zip file specified by the zipFilePath to a directory specified by
      * destDirectory (will be created if does not exists)
